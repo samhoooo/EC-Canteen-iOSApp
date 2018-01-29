@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525EF8B1201E39830037BD12 /* RestaurantTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EF8B0201E39830037BD12 /* RestaurantTabBarController.swift */; };
 		5291AC282014506F00E01247 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5291AC272014506F00E01247 /* AppDelegate.swift */; };
 		5291AC2C2014506F00E01247 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5291AC2B2014506F00E01247 /* SecondViewController.swift */; };
 		5291AC2F2014506F00E01247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5291AC2D2014506F00E01247 /* Main.storyboard */; };
@@ -19,11 +20,13 @@
 		5291AC4E20163BFC00E01247 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5291AC4D20163BFC00E01247 /* Meal.swift */; };
 		5291AC5020163C4400E01247 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5291AC4F20163C4400E01247 /* MealTableViewController.swift */; };
 		5291AC5220163E9400E01247 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5291AC5120163E9400E01247 /* ShoppingCart.swift */; };
+		5291AC54201702B300E01247 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5291AC53201702B300E01247 /* Preferences.swift */; };
 		D2BAA7B458A745E4D904F420 /* Pods_EC_Canteen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF1A6A40BA09CD52129871A /* Pods_EC_Canteen.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		25CFF469AFCB4517721F1DA4 /* Pods-EC Canteen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EC Canteen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EC Canteen/Pods-EC Canteen.debug.xcconfig"; sourceTree = "<group>"; };
+		525EF8B0201E39830037BD12 /* RestaurantTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTabBarController.swift; sourceTree = "<group>"; };
 		5291AC242014506F00E01247 /* EC Canteen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EC Canteen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5291AC272014506F00E01247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5291AC2B2014506F00E01247 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		5291AC4D20163BFC00E01247 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		5291AC4F20163C4400E01247 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		5291AC5120163E9400E01247 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
+		5291AC53201702B300E01247 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		641AE0A9FB3C01E927C03B67 /* Pods-EC Canteen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EC Canteen.release.xcconfig"; path = "Pods/Target Support Files/Pods-EC Canteen/Pods-EC Canteen.release.xcconfig"; sourceTree = "<group>"; };
 		7AF1A6A40BA09CD52129871A /* Pods_EC_Canteen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EC_Canteen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +102,7 @@
 				5291AC422014AC4B00E01247 /* SearchTableControl.swift */,
 				5291AC4B20161F0E00E01247 /* MapViewController.swift */,
 				5291AC2B2014506F00E01247 /* SecondViewController.swift */,
+				525EF8B0201E39830037BD12 /* RestaurantTabBarController.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				5291AC46201596AF00E01247 /* UserLocation.swift */,
+				5291AC53201702B300E01247 /* Preferences.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 			files = (
 				5291AC432014AC4B00E01247 /* SearchTableControl.swift in Sources */,
 				5291AC2C2014506F00E01247 /* SecondViewController.swift in Sources */,
+				5291AC54201702B300E01247 /* Preferences.swift in Sources */,
+				525EF8B1201E39830037BD12 /* RestaurantTabBarController.swift in Sources */,
 				5291AC492015D26400E01247 /* RestaurantDetailController.swift in Sources */,
 				5291AC282014506F00E01247 /* AppDelegate.swift in Sources */,
 				5291AC4E20163BFC00E01247 /* Meal.swift in Sources */,
@@ -415,12 +423,14 @@
 			baseConfigurationReference = 25CFF469AFCB4517721F1DA4 /* Pods-EC Canteen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MEQASB7DA3;
+				DEVELOPMENT_TEAM = 3KGZVUCKF2;
 				INFOPLIST_FILE = "EC Canteen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "MHW1701.EC-Canteen";
+				PRODUCT_BUNDLE_IDENTIFIER = jaar.ga.ECanteen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -431,12 +441,14 @@
 			baseConfigurationReference = 641AE0A9FB3C01E927C03B67 /* Pods-EC Canteen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MEQASB7DA3;
+				DEVELOPMENT_TEAM = 3KGZVUCKF2;
 				INFOPLIST_FILE = "EC Canteen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "MHW1701.EC-Canteen";
+				PRODUCT_BUNDLE_IDENTIFIER = jaar.ga.ECanteen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

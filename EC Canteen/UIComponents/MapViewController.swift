@@ -33,7 +33,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             marker.title = restaurantList[i]["name"].stringValue
             marker.snippet = restaurantList[i]["eng_name"].stringValue
             marker.userData = restaurantList[i]["restaurantid"].intValue
-            if (!restaurantList[i]["is_opening"].boolValue) {
+            if (!restaurantList[i]["isOpening"]["status"].boolValue) {
                 marker.icon = GMSMarker.markerImage(with: .black)
             }
             marker.map = mapView
@@ -51,10 +51,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier != "MapViewSegue") {
-            let restaurantDetailController = segue.destination as! RestaurantDetailController
+            let restaurantTabBarController = segue.destination as! RestaurantTabBarController
             
             // set a variable in the second view controller with the data to pass
-            restaurantDetailController.canteen_id = selectedRestaurantID
+            restaurantTabBarController.canteen_id = selectedRestaurantID
         }
     }
 }

@@ -69,6 +69,18 @@ class SearchTableController: UITableViewController {
                     
                 } catch {
                     print("Error: \(error)")
+                    let alert = UIAlertController(title: "My Alert", message: NSLocalizedString("VPN not enabled", comment: "Alert Box"), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                        NSLog("The \"OK\" alert occured.")
+                    }))
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Default action"), style: .cancel, handler: { _ in
+                        do {
+                            try PreferencesExplorer.open(.ringtone)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
@@ -76,6 +88,7 @@ class SearchTableController: UITableViewController {
     
     @objc private func refreshData(_ sender: Any) {
         fetchData()
+        userLocation.determineMyCurrentLocation()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,7 +100,7 @@ class SearchTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! MyCustomTableViewCell
         
         cell.textLabel?.text = restaurants[indexPath.row]["name"].string
-        if (restaurants[indexPath.row]["is_opening"].boolValue) {
+        if (restaurants[indexPath.row]["isOpening"]["status"].boolValue) {
             cell.detailTextLabel?.text =  "OPENING"
         } else {
             cell.detailTextLabel?.text =  "CLOSED"
@@ -112,8 +125,8 @@ class SearchTableController: UITableViewController {
             // set a variable in the second view controller with the data to pass
             restaurantDetailController.canteen_id = selectedRestaurantID
         } else {
-            let restaurantDetailController = segue.destination as! MapViewController
-            restaurantDetailController.restaurantList = restaurants
+            let mapViewController = segue.destination as! MapViewController
+            mapViewController.restaurantList = restaurants
         }
     }
 

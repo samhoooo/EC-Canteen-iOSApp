@@ -16,7 +16,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgImage: UIImageView!
 }
 
-
 class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var UI_PlayVideo: UIView!
     //@IBOutlet weak var saveRecipeButton: UIButton!

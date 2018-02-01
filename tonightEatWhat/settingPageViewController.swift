@@ -85,7 +85,6 @@ class settingPageViewController: UITableViewController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         let webVC = storyboard?.instantiateViewController(withIdentifier: "webView") as! webViewController
-        let gridSelectorVC = storyboard?.instantiateViewController(withIdentifier: "GridSelectorView") as! gridSelectorViewController
         
         switch cell {
             case cell_login:
@@ -95,8 +94,7 @@ class settingPageViewController: UITableViewController {
                 temp_logout()
                 break
             case cell_kitchenware:
-                gridSelectorVC.title = "訂購紀錄"
-                navigationController?.pushViewController(gridSelectorVC, animated: true)
+                //Open something
             break
             case cell_aboutapp:
                 webVC.title = "關於程式"

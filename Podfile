@@ -1,5 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
-target 'tonightEatWhat' do
+platform :ios, '10.3'
+target 'ECanteen' do
 use_frameworks!
   pod 'GoogleMaps'
   pod 'GooglePlaces'

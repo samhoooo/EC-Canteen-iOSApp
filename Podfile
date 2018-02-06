@@ -5,5 +5,5 @@ use_frameworks!
   pod 'GooglePlaces'
   pod 'Stripe'
   pod 'Alamofire'
-  pod ‘SwiftyJSON’
+  pod 'SwiftyJSON'
 end

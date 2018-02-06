@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import SwiftyJSON
+import UserNotifications
 
 class MapViewController: UIViewController, GMSMapViewDelegate {
     
@@ -39,6 +40,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             marker.map = mapView
         }
         
+        UNUserNotificationCenter.current().delegate = self //enable foreground app notification
     }
     
     var selectedRestaurantID = 0
@@ -56,6 +58,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             // set a variable in the second view controller with the data to pass
             restaurantTabBarController.canteen_id = selectedRestaurantID
         }
+    }
+}
+
+extension MapViewController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
     }
 }
 

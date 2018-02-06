@@ -26,11 +26,13 @@
 		225DBDF3201F87F0006DB897 /* RestaurantTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBDEE201F87F0006DB897 /* RestaurantTabBarController.swift */; };
 		225DBDF4201F87F0006DB897 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBDEF201F87F0006DB897 /* SecondViewController.swift */; };
 		225DBDF6202052E1006DB897 /* SearchTableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBDF5202052E1006DB897 /* SearchTableControl.swift */; };
-		225DBDFA2020531A006DB897 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBDF82020531A006DB897 /* Preferences.swift */; };
-		225DBDFB2020531A006DB897 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBDF92020531A006DB897 /* UserLocation.swift */; };
 		225DBDFD202053C3006DB897 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBDFC202053C2006DB897 /* MealTableViewController.swift */; };
 		225DBE0A2022EA2B006DB897 /* shoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBE092022EA2B006DB897 /* shoppingCart.swift */; };
 		225DBE0C2022EA31006DB897 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DBE0B2022EA31006DB897 /* Meal.swift */; };
+		226A90AB2029811D00385867 /* takeFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A90AA2029811D00385867 /* takeFoodViewController.swift */; };
+		2290699C2028B6690053240C /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290699A2028B6690053240C /* Preferences.swift */; };
+		2290699D2028B6690053240C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290699B2028B6690053240C /* UserLocation.swift */; };
+		229069A220294FC20053240C /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229069A120294FC20053240C /* notifications.swift */; };
 		22CBA16F1F20DB5500CBE579 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBA16E1F20DB5500CBE579 /* ImageCollectionViewCell.swift */; };
 		22FCA3CC1F26E87E0062F97B /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CB1F26E87E0062F97B /* CommentCollectionViewCell.swift */; };
 		22FCA3CE1F26E9B10062F97B /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CD1F26E9B10062F97B /* CommentViewController.swift */; };
@@ -101,11 +103,14 @@
 		225DBDEE201F87F0006DB897 /* RestaurantTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTabBarController.swift; sourceTree = "<group>"; };
 		225DBDEF201F87F0006DB897 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		225DBDF5202052E1006DB897 /* SearchTableControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableControl.swift; sourceTree = "<group>"; };
-		225DBDF82020531A006DB897 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		225DBDF92020531A006DB897 /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 		225DBDFC202053C2006DB897 /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		225DBE092022EA2B006DB897 /* shoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingCart.swift; sourceTree = "<group>"; };
 		225DBE0B2022EA31006DB897 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		226A90AA2029811D00385867 /* takeFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takeFoodViewController.swift; sourceTree = "<group>"; };
+		2290699A2028B6690053240C /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2290699B2028B6690053240C /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		2290699E2028B8E80053240C /* tonightEatWhat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tonightEatWhat.entitlements; sourceTree = "<group>"; };
+		229069A120294FC20053240C /* notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifications.swift; sourceTree = "<group>"; };
 		22CBA16E1F20DB5500CBE579 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FCA3CB1F26E87E0062F97B /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FCA3CD1F26E9B10062F97B /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +127,7 @@
 		A369850B1F1CAFFA001D0F12 /* search_resultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = search_resultViewController.swift; sourceTree = "<group>"; };
 		A369850D1F1CB0A8001D0F12 /* search_resultCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = search_resultCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFD190830405D2CA89F66414 /* Pods-tonightEatWhat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tonightEatWhat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tonightEatWhat/Pods-tonightEatWhat.debug.xcconfig"; sourceTree = "<group>"; };
-		F3663DA51F0B2C3400D3AC9B /* tonightEatWhat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tonightEatWhat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3663DA51F0B2C3400D3AC9B /* ECanteen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECanteen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3663DA81F0B2C3400D3AC9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3663DAA1F0B2C3400D3AC9B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3663DAD1F0B2C3400D3AC9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,22 +205,14 @@
 		225DBDEA201F87F0006DB897 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F3663DE91F0B377300D3AC9B /* setting */,
+				226A90A92029807200385867 /* takeFoodPage */,
 				225DBE022022E83E006DB897 /* NearbyRestaurantList */,
 				225DBE012020693F006DB897 /* MealListPage */,
 				225DBE0020206872006DB897 /* RestaurantPage */,
 				225DBDFF2020684C006DB897 /* ShoppingCart */,
 			);
 			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		225DBDF72020531A006DB897 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				225DBDF82020531A006DB897 /* Preferences.swift */,
-				225DBDF92020531A006DB897 /* UserLocation.swift */,
-			);
-			name = Library;
-			path = "../../../../EC-Canteen-iOSApp-new/EC Canteen/Library";
 			sourceTree = "<group>";
 		};
 		225DBDFF2020684C006DB897 /* ShoppingCart */ = {
@@ -271,6 +268,24 @@
 			name = reservedFiles;
 			sourceTree = "<group>";
 		};
+		226A90A92029807200385867 /* takeFoodPage */ = {
+			isa = PBXGroup;
+			children = (
+				226A90AA2029811D00385867 /* takeFoodViewController.swift */,
+			);
+			path = takeFoodPage;
+			sourceTree = "<group>";
+		};
+		229069992028B6690053240C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				2290699A2028B6690053240C /* Preferences.swift */,
+				2290699B2028B6690053240C /* UserLocation.swift */,
+				229069A120294FC20053240C /* notifications.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		5EEC97E71F23889200B0DCF6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,7 +328,7 @@
 		F3663DA61F0B2C3400D3AC9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F3663DA51F0B2C3400D3AC9B /* tonightEatWhat.app */,
+				F3663DA51F0B2C3400D3AC9B /* ECanteen.app */,
 				F3663DBC1F0B2C3400D3AC9B /* tonightEatWhatTests.xctest */,
 				F3663DC71F0B2C3400D3AC9B /* tonightEatWhatUITests.xctest */,
 			);
@@ -323,16 +338,16 @@
 		F3663DA71F0B2C3400D3AC9B /* tonightEatWhat */ = {
 			isa = PBXGroup;
 			children = (
+				2290699E2028B8E80053240C /* tonightEatWhat.entitlements */,
 				225DBE092022EA2B006DB897 /* shoppingCart.swift */,
 				225DBE0B2022EA31006DB897 /* Meal.swift */,
+				229069992028B6690053240C /* Library */,
 				225DBE042022E950006DB897 /* reservedFiles */,
-				225DBDF72020531A006DB897 /* Library */,
 				225DBDEA201F87F0006DB897 /* UIComponents */,
 				224DADBE1FD18316005E0475 /* Stripe */,
 				A369850A1F1CAFD5001D0F12 /* search_result */,
 				5EEC97E71F23889200B0DCF6 /* classes */,
 				F3663DEA1F0B377E00D3AC9B /* notification */,
-				F3663DE91F0B377300D3AC9B /* setting */,
 				F3663DE81F0B376C00D3AC9B /* saved */,
 				F3663DE71F0B374400D3AC9B /* search */,
 				F3663DA81F0B2C3400D3AC9B /* AppDelegate.swift */,
@@ -384,6 +399,7 @@
 				5EB0B9E01F1CC0A000A2A8AA /* acSettingViewController.swift */,
 			);
 			name = setting;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F3663DEA1F0B377E00D3AC9B /* notification */ = {
@@ -397,9 +413,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3663DA41F0B2C3400D3AC9B /* tonightEatWhat */ = {
+		F3663DA41F0B2C3400D3AC9B /* ECanteen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3663DD01F0B2C3400D3AC9B /* Build configuration list for PBXNativeTarget "tonightEatWhat" */;
+			buildConfigurationList = F3663DD01F0B2C3400D3AC9B /* Build configuration list for PBXNativeTarget "ECanteen" */;
 			buildPhases = (
 				247B2EBB3DB2AC678D0DF41E /* [CP] Check Pods Manifest.lock */,
 				F3663DA11F0B2C3400D3AC9B /* Sources */,
@@ -412,9 +428,9 @@
 			);
 			dependencies = (
 			);
-			name = tonightEatWhat;
+			name = ECanteen;
 			productName = tonightEatWhat;
-			productReference = F3663DA51F0B2C3400D3AC9B /* tonightEatWhat.app */;
+			productReference = F3663DA51F0B2C3400D3AC9B /* ECanteen.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F3663DBB1F0B2C3400D3AC9B /* tonightEatWhatTests */ = {
@@ -468,6 +484,20 @@
 						DevelopmentTeam = 3KGZVUCKF2;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
+								enabled = 0;
+							};
+						};
 					};
 					F3663DBB1F0B2C3400D3AC9B = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -496,7 +526,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F3663DA41F0B2C3400D3AC9B /* tonightEatWhat */,
+				F3663DA41F0B2C3400D3AC9B /* ECanteen */,
 				F3663DBB1F0B2C3400D3AC9B /* tonightEatWhatTests */,
 				F3663DC61F0B2C3400D3AC9B /* tonightEatWhatUITests */,
 			);
@@ -602,11 +632,13 @@
 				F3663DF01F0B3A3C00D3AC9B /* stylePageViewController.swift in Sources */,
 				F3663DF41F0B438800D3AC9B /* tabBarController.swift in Sources */,
 				224DADC61FD18886005E0475 /* Buttons.swift in Sources */,
+				226A90AB2029811D00385867 /* takeFoodViewController.swift in Sources */,
 				224DADCC1FD27878005E0475 /* historyItemTableViewCell.swift in Sources */,
 				224DADC41FD18845005E0475 /* CheckoutRowView.swift in Sources */,
 				F3663DE41F0B36D600D3AC9B /* seasoningPageViewController.swift in Sources */,
 				A32C1A7A1F28767F002E54CB /* ingredient_showViewController.swift in Sources */,
 				225DBDF0201F87F0006DB897 /* MapViewController.swift in Sources */,
+				2290699C2028B6690053240C /* Preferences.swift in Sources */,
 				A32C1A7C1F2876AF002E54CB /* ingredient_showCollectionViewCell.swift in Sources */,
 				225DBDF3201F87F0006DB897 /* RestaurantTabBarController.swift in Sources */,
 				A369850C1F1CAFFA001D0F12 /* search_resultViewController.swift in Sources */,
@@ -629,14 +661,14 @@
 				5EEC97E61F23868D00B0DCF6 /* GridCollectionViewCell.swift in Sources */,
 				225DBDF6202052E1006DB897 /* SearchTableControl.swift in Sources */,
 				F3663DA91F0B2C3400D3AC9B /* AppDelegate.swift in Sources */,
-				225DBDFA2020531A006DB897 /* Preferences.swift in Sources */,
 				A369850E1F1CB0A8001D0F12 /* search_resultCollectionViewCell.swift in Sources */,
 				F3663DE21F0B36B600D3AC9B /* settingPageViewController.swift in Sources */,
-				225DBDFB2020531A006DB897 /* UserLocation.swift in Sources */,
 				22CBA16F1F20DB5500CBE579 /* ImageCollectionViewCell.swift in Sources */,
+				2290699D2028B6690053240C /* UserLocation.swift in Sources */,
 				22FCA3D01F2727870062F97B /* PopUpViewController.swift in Sources */,
 				5ED041421F1B5E0A000D2F6F /* webViewController.swift in Sources */,
 				224DADC81FD18902005E0475 /* SettingViewController.swift in Sources */,
+				229069A220294FC20053240C /* notifications.swift in Sources */,
 				224DADCA1FD189CF005E0475 /* PaymentContextFooterView.swift in Sources */,
 				F3663DB11F0B2C3400D3AC9B /* tonightEatWhat.xcdatamodeld in Sources */,
 				225DBE0C2022EA31006DB897 /* Meal.swift in Sources */,
@@ -667,12 +699,12 @@
 /* Begin PBXTargetDependency section */
 		F3663DBE1F0B2C3400D3AC9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F3663DA41F0B2C3400D3AC9B /* tonightEatWhat */;
+			target = F3663DA41F0B2C3400D3AC9B /* ECanteen */;
 			targetProxy = F3663DBD1F0B2C3400D3AC9B /* PBXContainerItemProxy */;
 		};
 		F3663DC91F0B2C3400D3AC9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F3663DA41F0B2C3400D3AC9B /* tonightEatWhat */;
+			target = F3663DA41F0B2C3400D3AC9B /* ECanteen */;
 			targetProxy = F3663DC81F0B2C3400D3AC9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -741,6 +773,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = ECanteen;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -784,6 +817,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ECanteen;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -795,12 +829,13 @@
 			baseConfigurationReference = EFD190830405D2CA89F66414 /* Pods-tonightEatWhat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = tonightEatWhat/tonightEatWhat.entitlements;
 				DEVELOPMENT_TEAM = 3KGZVUCKF2;
 				INFOPLIST_FILE = tonightEatWhat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = jaar.ga.Canteen;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ECanteen;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -810,12 +845,13 @@
 			baseConfigurationReference = 875022C6CF15D901567D0F0C /* Pods-tonightEatWhat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = tonightEatWhat/tonightEatWhat.entitlements;
 				DEVELOPMENT_TEAM = 3KGZVUCKF2;
 				INFOPLIST_FILE = tonightEatWhat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = jaar.ga.Canteen;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ECanteen;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -886,7 +922,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3663DD01F0B2C3400D3AC9B /* Build configuration list for PBXNativeTarget "tonightEatWhat" */ = {
+		F3663DD01F0B2C3400D3AC9B /* Build configuration list for PBXNativeTarget "ECanteen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3663DD11F0B2C3400D3AC9B /* Debug */,

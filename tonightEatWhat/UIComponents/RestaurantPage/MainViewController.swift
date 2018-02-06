@@ -11,6 +11,7 @@ import AVFoundation
 import AVKit
 import Alamofire
 import SwiftyJSON
+import UserNotifications
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
@@ -195,6 +196,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
             }
         }
+        UNUserNotificationCenter.current().delegate = self //enable foreground app notification
     }
     
     override func didReceiveMemoryWarning() {
@@ -227,4 +229,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.player.pause()
     }
     
+}
+
+extension ViewController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
 }

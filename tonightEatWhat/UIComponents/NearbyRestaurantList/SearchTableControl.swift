@@ -10,12 +10,13 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import CoreLocation
+import UserNotifications
 
 class MyCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
 }
 
-class SearchTableController: UITableViewController {
+class SearchTableController: UITableViewController, UIApplicationDelegate {
     
     var restaurants = [JSON]()
     
@@ -36,6 +37,7 @@ class SearchTableController: UITableViewController {
         })
         fetchData()
         userLocation.determineMyCurrentLocation()
+        UNUserNotificationCenter.current().delegate = self //enable foreground app notification
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,3 +133,15 @@ class SearchTableController: UITableViewController {
     }
 
 }
+
+extension SearchTableController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        notifications.getMyNotifcations(v: self.view)
+        completionHandler()
+    }
+}
+

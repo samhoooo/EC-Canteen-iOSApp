@@ -85,7 +85,8 @@ class settingPageViewController: UITableViewController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         let webVC = storyboard?.instantiateViewController(withIdentifier: "webView") as! webViewController
-        
+        let takeFoodView = storyboard?.instantiateViewController(withIdentifier: "takeFoodView") as! takeFoodViewController
+
         switch cell {
             case cell_login:
                 temp_login(username: "Ronald")

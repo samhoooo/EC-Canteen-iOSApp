@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class shoppingCartTableViewController: UITableViewController {
 
@@ -18,6 +19,8 @@ class shoppingCartTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        UNUserNotificationCenter.current().delegate = self //enable foreground app notification
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -117,4 +120,10 @@ class shoppingCartTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension shoppingCartTableViewController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
 }

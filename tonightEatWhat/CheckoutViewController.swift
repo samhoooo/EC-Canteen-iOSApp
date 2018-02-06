@@ -190,6 +190,16 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "tabBar") as! tabBarController
             self.present(nextViewController, animated:true, completion:nil)
+            
+            notifications.requestAuthorization() //request notification premission
+            //HARDCODED timednotification for 10 seconds
+            notifications.timedNotifications(inSeconds: 10){ (success) in
+                if(success){
+                    print("successfully notified")
+                }else{
+                    print("fail to notify")
+                }
+            }
         })
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
@@ -224,7 +234,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         alertController.addAction(retry)
         self.present(alertController, animated: true, completion: nil)
     }
-    
     
     
 }

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F3663DA41F0B2C3400D3AC9B"
-               BuildableName = "tonightEatWhat.app"
-               BlueprintName = "tonightEatWhat"
+               BuildableName = "ECanteen.app"
+               BlueprintName = "ECanteen"
                ReferencedContainer = "container:tonightEatWhat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -53,8 +54,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F3663DA41F0B2C3400D3AC9B"
-            BuildableName = "tonightEatWhat.app"
-            BlueprintName = "tonightEatWhat"
+            BuildableName = "ECanteen.app"
+            BlueprintName = "ECanteen"
             ReferencedContainer = "container:tonightEatWhat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,6 +66,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -76,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F3663DA41F0B2C3400D3AC9B"
-            BuildableName = "tonightEatWhat.app"
-            BlueprintName = "tonightEatWhat"
+            BuildableName = "ECanteen.app"
+            BlueprintName = "ECanteen"
             ReferencedContainer = "container:tonightEatWhat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,8 +97,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F3663DA41F0B2C3400D3AC9B"
-            BuildableName = "tonightEatWhat.app"
-            BlueprintName = "tonightEatWhat"
+            BuildableName = "ECanteen.app"
+            BlueprintName = "ECanteen"
             ReferencedContainer = "container:tonightEatWhat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

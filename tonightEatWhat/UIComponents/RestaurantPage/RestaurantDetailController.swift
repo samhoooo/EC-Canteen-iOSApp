@@ -11,6 +11,7 @@ import AVFoundation
 import AVKit
 import Alamofire
 import SwiftyJSON
+import UserNotifications
 
 
 class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -82,8 +83,8 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
-    //var imageArray = [UIImage(named:"coffeecon1"),UIImage(named:"coffeecon2"),UIImage(named:"coffeecon3"),UIImage(named:"coffeecon4"),]
-    var imageArray = [UIImage]()
+    var imageArray = [UIImage(named:"coffeecon1"),UIImage(named:"coffeecon2"),UIImage(named:"coffeecon3"),UIImage(named:"coffeecon4"),]
+    //var imageArray = [UIImage]()
     let videoURL = "http://appsrv.cse.cuhk.edu.hk/~ktho5/recipe/christmas_song.mp4"
     var player = AVPlayer()
     
@@ -204,6 +205,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
                 }
             }
         }
+        UNUserNotificationCenter.current().delegate = self //enable foreground app notification
     }
     
     override func didReceiveMemoryWarning() {
@@ -235,4 +237,10 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
         self.player.pause()
     }
     
+}
+
+extension RestaurantDetailController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
 }

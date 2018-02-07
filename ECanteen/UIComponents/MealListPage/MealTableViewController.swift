@@ -157,7 +157,7 @@ class mealTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let shoppingCartInstance = shoppingCart.sharedShoppingCart
-        if (self.canteen_name != shoppingCartInstance.canteenName && shoppingCartInstance.canteenName.isEmpty==false){
+        if (self.canteen_id != shoppingCartInstance.canteenId && shoppingCartInstance.canteenName.isEmpty==false){
             print(self.canteen_name+" "+shoppingCartInstance.canteenName)
             let alert = UIAlertController(title: "已有訂單", message: "你已有其他餐廳的訂單！", preferredStyle: UIAlertControllerStyle.actionSheet)
             alert.addAction(UIAlertAction(title: "是", style: UIAlertActionStyle.default, handler: nil))
@@ -169,6 +169,7 @@ class mealTableViewController: UITableViewController {
             let mealItem = self.meals[indexPath.row]
             shoppingCartInstance.shoppingCartArray.append(mealItem)
             shoppingCartInstance.canteenName = self.canteen_name
+            shoppingCartInstance.canteenId = self.canteen_id
             print(shoppingCartInstance.canteenName)
             print("Shopping cart called.")
             //print(shoppingCartInstance.shoppingCartArray)

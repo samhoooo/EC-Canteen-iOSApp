@@ -1,5 +1,7 @@
 import UIKit
 import Stripe
+import Alamofire
+import SwiftyJSON
 
 class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
@@ -18,7 +20,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     let appleMerchantID: String? = nil
     
     // These values will be shown to the user when they purchase with Apple Pay.
-    let companyName = "EatMud7"
+    let companyName = "ECanteen"
     let paymentCurrency = "hkd"
     
     let paymentContext: STPPaymentContext
@@ -31,6 +33,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     let productImage = UILabel()
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     let numberFormatter: NumberFormatter
+    var orderID = 0
+    var restaurantID = 0
     var product = ""
     var paymentInProgress: Bool = false {
         didSet {
@@ -49,8 +53,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         }
     }
     
-    init(product: String, price: Int, settings: Settings) {
-        
+    init(product: String, price: Int, settings: Settings, restaurantID: Int, orderID: Int) {
+        self.restaurantID = restaurantID
+        self.orderID = orderID
         let stripePublishableKey = self.stripePublishableKey
         let backendBaseURL = self.backendBaseURL
         
@@ -160,19 +165,28 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         MyAPIClient.sharedClient.completeCharge(paymentResult,
                                                 amount: self.paymentContext.paymentAmount,
-                                                completion: completion)
+                                                restaurantID: self.restaurantID,
+                                                orderID: self.orderID,
+                                                completion: completion
+        )
+        
         //print("Charge completed! Charge Call missing")
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         self.paymentInProgress = false
-        let title: String
-        let message: String
+        var title: String = ""
+        var message: String = ""
         switch status {
         case .error:
             title = "Error"
             message = error?.localizedDescription ?? ""
         case .success:
+            Alamofire.request("http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/\(restaurantID)/orders/\(orderID)").responseString { response in
+                if let value = response.result.value {
+                    print(value)
+                }
+            }
             title = "預訂成功"
             message = "\(self.product)成功! 請耐心等候，食物將完成時會有通知提醒"
             let shoppingCartInstance = shoppingCart.sharedShoppingCart

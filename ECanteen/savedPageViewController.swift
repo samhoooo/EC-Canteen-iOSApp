@@ -8,6 +8,9 @@
 
 import UIKit
 import Stripe
+import Alamofire
+import SwiftyJSON
+
 
 class savedPageViewController: UIViewController {
 
@@ -46,10 +49,32 @@ class savedPageViewController: UIViewController {
             totalPrice += item.price
         }
         if(totalPrice>0){
-            let checkoutViewController = CheckoutViewController(product: "堂食預訂",
-                                                            price: Int(Float(totalPrice)*100),
-                                                            settings: self.settingsVC.settings)
-            self.navigationController?.pushViewController(checkoutViewController, animated: true)
+            
+            let endpoint = "http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/\(shoppingCartInstance.canteenId)/orders"
+            
+            
+            let parameters = ["cart": shoppingCartInstance.outputJSON()]
+            
+            Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                if let JSONData = response.result.value {
+                    let parsedJSON = JSON(JSONData)
+                    let checkoutViewController = CheckoutViewController(product: "堂食預訂",
+                                                                        price: Int(parsedJSON["amount"].doubleValue*100),
+                                                                        settings: self.settingsVC.settings,
+                                                                        restaurantID: shoppingCartInstance.canteenId,
+                                                                        orderID: parsedJSON["order_id"].intValue)
+                    self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "錯誤：無法取得總額",
+                                                  message: "請稍後再試",
+                                                  preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok",
+                                                  style: UIAlertActionStyle.default,
+                                                  handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
         }else{
             let alert = UIAlertController(title: "沒有訂單",
                                           message: "沒有訂單 請先點餐！",

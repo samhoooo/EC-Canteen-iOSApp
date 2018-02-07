@@ -11,6 +11,11 @@ import UIKit
 class shoppingCart{
     var shoppingCartArray = [Meal]()
     var canteenName = ""
+    var canteenId = 0
     var orderHistory = [Meal]()
     static let sharedShoppingCart = shoppingCart()
+    
+    func outputJSON () -> [[String:Any]] {
+        return self.shoppingCartArray.map{["itemid":$0.itemId, "attributes":[]]}
+    }
 }

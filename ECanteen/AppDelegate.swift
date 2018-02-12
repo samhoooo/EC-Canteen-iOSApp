@@ -10,19 +10,45 @@ import UIKit
 import CoreData
 import Stripe
 import GoogleMaps
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in
+            if granted {
+                print("Agree")
+            }
+            else {
+                print("Disagree")
+            }
+        })
+        
         //set up tab bar
         STPPaymentConfiguration.shared().publishableKey = "pk_test_kEWoZKZwuqk5iyz6mgDndZD6" //Set up Stripe Key
         GMSServices.provideAPIKey("AIzaSyCXsegS5xwhJI1UwyeAI1oXlK6HKaKBKsc")  //Set up google map key
+        
+        application.registerForRemoteNotifications()
         return true
+    }
+    
+    // For APN
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("DEVICE TOKEN = \(tokenString)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print(userInfo)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

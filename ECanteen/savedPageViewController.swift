@@ -28,11 +28,11 @@ class savedPageViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //calculate total price
         let shoppingCartInstance = shoppingCart.sharedShoppingCart
-        var totalPrice = 0.0
+        var totalPrice = 0
         for item in shoppingCartInstance.shoppingCartArray{
             totalPrice += item.price
         }
-        totalTextView.text = "$"+String(format: "%.1f",totalPrice) //update total price label
+        totalTextView.text = "$"+String(format: "%.1f",Double(totalPrice)/100) //update total price label
         restaurantTextView.text = shoppingCartInstance.canteenName
     }
 
@@ -44,13 +44,13 @@ class savedPageViewController: UIViewController {
     @IBAction func checkoutButtonOnClick(_ sender: Any) {
         print("button clicked")
         let shoppingCartInstance = shoppingCart.sharedShoppingCart
-        var totalPrice = 0.0
+        var totalPrice = 0
         for item in shoppingCartInstance.shoppingCartArray{
             totalPrice += item.price
         }
         if(totalPrice>0){
             
-            let endpoint = "http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/\(shoppingCartInstance.canteenId)/orders"
+            let endpoint = "\(Constants.API_BASE)/restaurants/\(shoppingCartInstance.canteenId)/orders"
             
             
             let parameters = ["cart": shoppingCartInstance.outputJSON()]
@@ -58,8 +58,11 @@ class savedPageViewController: UIViewController {
             Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                 if let JSONData = response.result.value {
                     let parsedJSON = JSON(JSONData)
+                    print(parsedJSON["amount"].stringValue)
+                    print(Constants.decimalToInt(decimal: parsedJSON["amount"].stringValue))
+                    
                     let checkoutViewController = CheckoutViewController(product: "堂食預訂",
-                                                                        price: Int(parsedJSON["amount"].doubleValue*100),
+                                                                        price: Constants.decimalToInt(decimal: parsedJSON["amount"].stringValue),
                                                                         settings: self.settingsVC.settings,
                                                                         restaurantID: shoppingCartInstance.canteenId,
                                                                         orderID: parsedJSON["order_id"].intValue)

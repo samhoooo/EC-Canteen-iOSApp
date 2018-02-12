@@ -57,7 +57,7 @@ class shoppingCartTableViewController: UITableViewController {
         let meal = shoppingCartInstance.shoppingCartArray[indexPath.row]
         
         cell.mealNameTextView.text = meal.name
-        cell.priceTextView.text = "$ "+String(format:"%.1f",meal.price)
+        cell.priceTextView.text = "$ "+String(format:"%.1f",Double(meal.price)/100)
         cell.mealImageView.image = meal.photo
         
         // Configure the cell...

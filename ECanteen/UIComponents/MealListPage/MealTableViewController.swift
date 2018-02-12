@@ -78,7 +78,7 @@ class mealTableViewController: UITableViewController {
         //let photo3 = UIImage(named: "coffeecon_meal3")
         //let photo4 = UIImage(named: "coffeecon_meal4")
         
-        Alamofire.request("http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/"+String(canteen_id)+"/menus/1",method:.get).responseJSON{ response in
+        Alamofire.request("\(Constants.API_BASE)/restaurants/"+String(canteen_id)+"/menus/1",method:.get).responseJSON{ response in
             
             if let status = response.response?.statusCode{
                 switch(status){
@@ -99,8 +99,13 @@ class mealTableViewController: UITableViewController {
                                 if let items = data["items"].array{
                                     for item in items{
                                         if item["name"] != JSON.null{
-                                            let price = item["price"].doubleValue
-                                            guard let mealX = Meal(name:"\(item["name"])",photo: UIImage(named: "coffeecon_meal"+String(self.meals.count % 4 + 1)),price: price,itemId:item["itemid"].intValue) else{
+                                            let price = item["price"].stringValue
+                                            guard let mealX = Meal(
+                                                name:"\(item["name"])",
+                                                photo: UIImage(named: "coffeecon_meal"+String(self.meals.count % 4 + 1)),
+                                                price: price,
+                                                itemId:item["itemid"].intValue)
+                                            else {
                                                 fatalError("Unable to instantiate meal")
                                             }
                                             self.meals += [mealX]
@@ -149,7 +154,7 @@ class mealTableViewController: UITableViewController {
         let meal = meals[indexPath.row]
         
         cell.mealNameLabel.text = meal.name
-        cell.mealPriceLabel.text = "$ "+String(format:"%.1f",meal.price)
+        cell.mealPriceLabel.text = "$ "+String(format:"%.1f",Double(meal.price)/100)
         cell.mealPhotoImageView.image = meal.photo
         
         return cell

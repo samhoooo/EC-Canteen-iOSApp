@@ -13,7 +13,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     // https://github.com/stripe/example-ios-backend , click "Deploy to Heroku", and follow
     // the instructions (don't worry, it's free). Replace nil on the line below with your
     // Heroku URL (it looks like https://blazing-sunrise-1234.herokuapp.com ).
-    let backendBaseURL: String? = "http://projgw.cse.cuhk.edu.hk:2887/api/mobile"
+    let backendBaseURL: String? = "\(Constants.API_BASE)/mobile"
     
     // 3) Optionally, to enable Apple Pay, follow the instructions at https://stripe.com/docs/mobile/apple-pay
     // to create an Apple Merchant ID. Replace nil on the line below with it (it looks like merchant.com.yourappname).
@@ -182,7 +182,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             title = "Error"
             message = error?.localizedDescription ?? ""
         case .success:
-            Alamofire.request("http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/\(restaurantID)/orders/\(orderID)").responseString { response in
+            Alamofire.request("\(Constants.API_BASE)/restaurants/\(restaurantID)/orders/\(orderID)").responseString { response in
                 if let value = response.result.value {
                     print(value)
                 }
@@ -195,6 +195,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             print("History: ")
             print(shoppingCartInstance.orderHistory)
             shoppingCartInstance.canteenName = ""
+            shoppingCartInstance.canteenId = 0
         case .userCancellation:
             return
         }
@@ -205,15 +206,15 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "tabBar") as! tabBarController
             self.present(nextViewController, animated:true, completion:nil)
             
-            notifications.requestAuthorization() //request notification premission
-            //HARDCODED timednotification for 10 seconds
-            notifications.timedNotifications(inSeconds: 10){ (success) in
-                if(success){
-                    print("successfully notified")
-                }else{
-                    print("fail to notify")
-                }
-            }
+//            notifications.requestAuthorization() //request notification premission
+//            //HARDCODED timednotification for 10 seconds
+//            notifications.timedNotifications(inSeconds: 10){ (success) in
+//                if(success){
+//                    print("successfully notified")
+//                }else{
+//                    print("fail to notify")
+//                }
+//            }
         })
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)

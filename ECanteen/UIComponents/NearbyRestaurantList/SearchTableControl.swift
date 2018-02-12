@@ -56,7 +56,7 @@ class SearchTableController: UITableViewController, UIApplicationDelegate {
     }
     
     private func fetchData() {
-        Alamofire.request("http://projgw.cse.cuhk.edu.hk:2887/api/restaurants").responseJSON { response in
+        Alamofire.request("\(Constants.API_BASE)/restaurants").responseJSON { response in
             if let data = response.data {
                 do {
                     self.restaurants = [JSON]()

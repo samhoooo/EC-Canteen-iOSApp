@@ -13,16 +13,17 @@ class Meal{
     
     var name: String
     var photo: UIImage?
-    var price: Double
+    var price: Int
     var itemId: Int
     
-    init?(name: String, photo:UIImage?,price:Double, itemId:Int) {
+    init?(name: String, photo:UIImage?, price:String, itemId:Int) {
         self.name = name
         self.photo = photo
-        self.price = Double(Int(price * 100) / 100)
+        self.price = Constants.decimalToInt(decimal: price)
+        print(self.price)
         self.itemId = itemId
         
-        if name.isEmpty || price<0 {
+        if name.isEmpty || self.price < 0 {
             return nil
         }
     }

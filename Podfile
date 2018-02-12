@@ -7,4 +7,5 @@ use_frameworks!
   pod 'Stripe'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'QRCode'
 end

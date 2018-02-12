@@ -114,7 +114,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
         NSLayoutConstraint.activate([bottomConstraint,topConstraint,leadingConstraint,trailingConstraint])
         
         //load restaurant info
-        Alamofire.request("http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/"+String(self.canteen_id),method: .get).responseJSON { response in
+        Alamofire.request("\(Constants.API_BASE)/restaurants/"+String(self.canteen_id),method: .get).responseJSON { response in
             if let status = response.response?.statusCode {
                 switch(status){
                 case 200:
@@ -139,7 +139,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
                         
                         if let photoList = json["photo"].array{
                             for photo in photoList{
-                                let photoURL = URL(string: "http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/"+String(self.canteen_id)+"/resources/"+String(photo.stringValue))
+                                let photoURL = URL(string: "\(Constants.API_BASE)/restaurants/"+String(self.canteen_id)+"/resources/"+String(photo.stringValue))
                                 
                                 //download the photo
                                 let session = URLSession(configuration: .default)

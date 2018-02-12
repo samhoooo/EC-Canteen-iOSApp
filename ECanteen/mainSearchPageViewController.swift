@@ -42,7 +42,7 @@ class mainSearchPageViewController: UIViewController,GMSMapViewDelegate,CLLocati
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        Alamofire.request("http://projgw.cse.cuhk.edu.hk:2887/api/restaurants/",method: .get).responseJSON { response in
+        Alamofire.request("\(Constants.API_BASE)/restaurants/",method: .get).responseJSON { response in
             if let status = response.response?.statusCode {
                 switch(status){
                 case 200:

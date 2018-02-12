@@ -38,6 +38,7 @@
 		22FCA3CE1F26E9B10062F97B /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CD1F26E9B10062F97B /* CommentViewController.swift */; };
 		22FCA3D01F2727870062F97B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CF1F2727870062F97B /* PopUpViewController.swift */; };
 		5240C5492029B377000C546D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5240C5482029B377000C546D /* Default-568h@2x.png */; };
+		52E9A020202F678400D49BCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E9A01F202F678400D49BCF /* Constants.swift */; };
 		5EB0B9DD1F1C6F7F00A2A8AA /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0B9DC1F1C6F7F00A2A8AA /* loginViewController.swift */; };
 		5EB0B9E11F1CC0A000A2A8AA /* acSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB0B9E01F1CC0A000A2A8AA /* acSettingViewController.swift */; };
 		5ED041421F1B5E0A000D2F6F /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED041411F1B5E0A000D2F6F /* webViewController.swift */; };
@@ -118,6 +119,7 @@
 		22FCA3CF1F2727870062F97B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		293C53A2A71BD849ABAA2413 /* Pods_tonightEatWhat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tonightEatWhat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5240C5482029B377000C546D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		52E9A01F202F678400D49BCF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5EB0B9DC1F1C6F7F00A2A8AA /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		5EB0B9E01F1CC0A000A2A8AA /* acSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = acSettingViewController.swift; sourceTree = "<group>"; };
 		5ED041411F1B5E0A000D2F6F /* webViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				F3663DB41F0B2C3400D3AC9B /* LaunchScreen.storyboard */,
 				F3663DB71F0B2C3400D3AC9B /* Info.plist */,
 				F3663DAF1F0B2C3400D3AC9B /* ECanteen.xcdatamodeld */,
+				52E9A01F202F678400D49BCF /* Constants.swift */,
 			);
 			path = ECanteen;
 			sourceTree = "<group>";
@@ -600,12 +603,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ECanteen/Pods-ECanteen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -646,6 +651,7 @@
 				F3663DAB1F0B2C3400D3AC9B /* MainViewController.swift in Sources */,
 				22FCA3CE1F26E9B10062F97B /* CommentViewController.swift in Sources */,
 				224DADBB1FD16411005E0475 /* shoppingCartTableViewCell.swift in Sources */,
+				52E9A020202F678400D49BCF /* Constants.swift in Sources */,
 				225DBDF2201F87F0006DB897 /* RestaurantDetailController.swift in Sources */,
 				F3663DE61F0B372200D3AC9B /* difficultyPageViewController.swift in Sources */,
 				225DB6DD1F2255190015CA5B /* PageDotViewController.swift in Sources */,

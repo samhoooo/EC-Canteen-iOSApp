@@ -19,7 +19,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     // to create an Apple Merchant ID. Replace nil on the line below with it (it looks like merchant.com.yourappname).
     let appleMerchantID: String? = nil
     
-    // These values will be shown to the user when they purchase with Apple Pay.
+    // These values will be shown acto the user when they purchase with Apple Pay.
     let companyName = "ECanteen"
     let paymentCurrency = "hkd"
     

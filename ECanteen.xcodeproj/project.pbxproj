@@ -221,6 +221,7 @@
 		225DBDFF2020684C006DB897 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				F3663DED1F0B39F200D3AC9B /* savedPageViewController.swift */,
 				224DADBC1FD165EB005E0475 /* shoppingCartTableViewController.swift */,
 				224DADBA1FD16411005E0475 /* shoppingCartTableViewCell.swift */,
 			);
@@ -351,7 +352,6 @@
 				A369850A1F1CAFD5001D0F12 /* search_result */,
 				5EEC97E71F23889200B0DCF6 /* classes */,
 				F3663DEA1F0B377E00D3AC9B /* notification */,
-				F3663DE81F0B376C00D3AC9B /* saved */,
 				F3663DE71F0B374400D3AC9B /* search */,
 				F3663DA81F0B2C3400D3AC9B /* AppDelegate.swift */,
 				F3663DAC1F0B2C3400D3AC9B /* Main.storyboard */,
@@ -374,14 +374,6 @@
 				F3663DEF1F0B3A3C00D3AC9B /* stylePageViewController.swift */,
 			);
 			name = search;
-			sourceTree = "<group>";
-		};
-		F3663DE81F0B376C00D3AC9B /* saved */ = {
-			isa = PBXGroup;
-			children = (
-				F3663DED1F0B39F200D3AC9B /* savedPageViewController.swift */,
-			);
-			name = saved;
 			sourceTree = "<group>";
 		};
 		F3663DE91F0B377300D3AC9B /* setting */ = {

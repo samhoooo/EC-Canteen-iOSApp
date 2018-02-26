@@ -10,6 +10,7 @@ import Foundation
 
 struct Constants {
     static let API_BASE = "http://projgw.cse.cuhk.edu.hk:2887/api"
+    static var deviceToken = ""
 //    static let API_BASE = "http://192.168.0.142:8000"
     
     static func decimalToInt (decimal: String) -> Int {

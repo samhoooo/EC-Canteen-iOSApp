@@ -187,6 +187,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                     print(value)
                 }
             }
+            
             title = "預訂成功"
             message = "\(self.product)成功! 請耐心等候，食物將完成時會有通知提醒"
             let shoppingCartInstance = shoppingCart.sharedShoppingCart

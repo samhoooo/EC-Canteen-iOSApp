@@ -10,7 +10,7 @@ import Foundation
 import UserNotifications
 import UIKit
 
-class notifications{
+class notifications {
 //    static func requestAuthorization(){
 //        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge, .sound]){
 //            (success,error) in
@@ -40,10 +40,11 @@ class notifications{
 //
 //    }
     
-    static func getMyNotifcations(v: UIView) {
+    static func getMyNotifcations(v: UIView, payload: [AnyHashable: Any]) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let takeFoodView = storyboard.instantiateViewController(withIdentifier: "takeFoodView") as? takeFoodViewController
         if takeFoodView != nil {
+            takeFoodView!.payload = payload
             takeFoodView!.view.frame = (v.window!.frame)
             v.window!.addSubview(takeFoodView!.view)
             v.window!.bringSubview(toFront: takeFoodView!.view)

@@ -140,8 +140,35 @@ extension SearchTableController: UNUserNotificationCenterDelegate{
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        notifications.getMyNotifcations(v: self.view)
+        // notifications.getMyNotifcations(v: self.view)
+        print("a")
+        switch (response.notification.request.content.userInfo["notiType"] as! String) {
+        case "take_order":
+            print("a")
+            notifications.getMyNotifcations(v: self.view, payload: response.notification.request.content.userInfo)
+            break
+            
+        default:
+            print("???")
+            break
+        }
         completionHandler()
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Capture payload here something like:
+        print("b")
+        switch (userInfo["notiType"] as! String) {
+        case "take_order":
+            notifications.getMyNotifcations(v: self.view, payload: userInfo)
+            break
+            
+        default:
+            print("???")
+            break
+        }
+        
+        completionHandler(.noData)
+        
+    }
 }
-

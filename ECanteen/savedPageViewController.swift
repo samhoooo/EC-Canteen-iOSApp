@@ -41,6 +41,8 @@ class savedPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var deviceToken:String = ""
+    
     @IBAction func checkoutButtonOnClick(_ sender: Any) {
         print("button clicked")
         let shoppingCartInstance = shoppingCart.sharedShoppingCart
@@ -52,8 +54,8 @@ class savedPageViewController: UIViewController {
             
             let endpoint = "\(Constants.API_BASE)/restaurants/\(shoppingCartInstance.canteenId)/orders"
             
-            
-            let parameters = ["cart": shoppingCartInstance.outputJSON()]
+            UIApplication.shared.registerForRemoteNotifications()
+            let parameters = ["cart": shoppingCartInstance.outputJSON(), "iosDeviceToken": Constants.deviceToken] as [String : Any]
             
             Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                 if let JSONData = response.result.value {

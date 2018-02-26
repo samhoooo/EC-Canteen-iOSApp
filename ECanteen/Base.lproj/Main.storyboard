@@ -566,22 +566,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWT-Nn-XGa">
-                                <rect key="frame" x="27" y="85" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take your order NOW!!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWT-Nn-XGa">
+                                <rect key="frame" x="16" y="85" width="343" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="TakeOrderButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuJ-bs-x6P">
+                                <rect key="frame" x="16" y="300" width="343" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="我好肚餓!!! Give me food!!!"/>
+                                <connections>
+                                    <action selector="TakeOrderAction:" destination="nvA-Vz-YBX" eventType="touchUpInside" id="NB0-S6-NCs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XwA-x1-Pqd"/>
                     <navigationItem key="navigationItem" id="hDw-2S-lid"/>
+                    <connections>
+                        <outlet property="TakeOrderButton" destination="IuJ-bs-x6P" id="6qW-0w-0fK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnE-A9-wG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="1136"/>
+            <point key="canvasLocation" x="1948" y="1135.6821589205399"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="1tr-zH-kBR">
@@ -1473,6 +1485,6 @@ tem Name</string>
         <image name="meal_placeholder" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A2b-3r-5xf"/>
+        <segue reference="Mu2-HG-jKo"/>
     </inferredMetricsTieBreakers>
 </document>

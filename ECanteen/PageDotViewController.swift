@@ -13,20 +13,18 @@ class PageDotViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var pageControlContainer: UIView!
     
-    var canteen_name = ""
-    var canteen_id:Int = 0
+    var restaurantId = 0
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let tutorialPageViewController = segue.destination as? PageViewController {
             tutorialPageViewController.tutorialDelegate = self
-            tutorialPageViewController.canteen_name = canteen_name
-            tutorialPageViewController.canteen_id = canteen_id
+            tutorialPageViewController.restaurantId = restaurantId
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = canteen_name
+        self.title = String(restaurantId)
         let button1 = UIBarButtonItem(image: UIImage(named: "BookmarkRibbon"), style: .plain, target: self, action: #selector(saveRecipe(sender:))) // action:#(Class.MethodName) for swift 3
         self.navigationItem.rightBarButtonItem  = button1
     }

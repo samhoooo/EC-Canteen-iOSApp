@@ -28,9 +28,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
     var startingFrame: CGRect?
     var blackbackgroundView: UIView?
     
-    var meals = [Meal]() //Array storing meals provided
-    var canteen_id:Int = 0
-    var canteen_name = ""
+    var restaurantId = 0
     
     @IBAction func imageTap(_ sender: UITapGestureRecognizer) {
         let startingImageView = sender.view as! UIImageView
@@ -65,8 +63,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc: mealTableViewController = segue.destination as! mealTableViewController
-        vc.canteen_id = canteen_id
-        vc.canteen_name = canteen_name
+        vc.restaurantId = restaurantId
     }
     
     @objc func handleZoomOutofImage(tapGesture: UITapGestureRecognizer){
@@ -114,7 +111,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
         NSLayoutConstraint.activate([bottomConstraint,topConstraint,leadingConstraint,trailingConstraint])
         
         //load restaurant info
-        Alamofire.request("\(Constants.API_BASE)/restaurants/"+String(self.canteen_id),method: .get).responseJSON { response in
+        Alamofire.request("\(Constants.API_BASE)/restaurants/"+String(self.restaurantId),method: .get).responseJSON { response in
             if let status = response.response?.statusCode {
                 switch(status){
                 case 200:
@@ -139,7 +136,7 @@ class RestaurantDetailController: UIViewController, UICollectionViewDelegate, UI
                         
                         if let photoList = json["photo"].array{
                             for photo in photoList{
-                                let photoURL = URL(string: "\(Constants.API_BASE)/restaurants/"+String(self.canteen_id)+"/resources/"+String(photo.stringValue))
+                                let photoURL = URL(string: "\(Constants.API_BASE)/restaurants/"+String(self.restaurantId)+"/resources/"+String(photo.stringValue))
                                 
                                 //download the photo
                                 let session = URLSession(configuration: .default)

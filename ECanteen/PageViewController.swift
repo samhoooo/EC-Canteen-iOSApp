@@ -12,8 +12,7 @@ class PageViewController: UIPageViewController {
     
     weak var tutorialDelegate: TutorialPageViewControllerDelegate?
     
-    var canteen_name = ""
-    var canteen_id:Int = 0
+    var restaurantId = 0
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [UIStoryboard(name: "Main", bundle: nil) .
@@ -28,8 +27,7 @@ class PageViewController: UIPageViewController {
         delegate = self
         
         if let firstViewController = orderedViewControllers.first {
-            (firstViewController as! ViewController).canteen_id = canteen_id
-            (firstViewController as! ViewController).canteen_name = canteen_name
+            (firstViewController as! ViewController).restaurantId = restaurantId
             setViewControllers([firstViewController],
                                direction: .forward,
                                animated: true,

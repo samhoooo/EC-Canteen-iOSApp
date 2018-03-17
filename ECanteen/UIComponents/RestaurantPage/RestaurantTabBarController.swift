@@ -16,8 +16,7 @@ class MainTabBarController: UITabBarController {
 }
 
 class RestaurantTabBarController: UITabBarController, UITabBarControllerDelegate {
-    var canteen_id:Int = 0
-    var canteen_name = ""
+    var restaurantId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +27,7 @@ class RestaurantTabBarController: UITabBarController, UITabBarControllerDelegate
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print("Selected view controller")
         if let detailController = viewController as? RestaurantDetailController{
-            detailController.canteen_id = self.canteen_id
-            detailController.canteen_name = self.canteen_name
+            detailController.restaurantId = self.restaurantId
         }
     }
     

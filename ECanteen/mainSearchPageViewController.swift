@@ -91,8 +91,7 @@ class mainSearchPageViewController: UIViewController,GMSMapViewDelegate,CLLocati
         print("tapped!")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let mainPageViewController = storyBoard.instantiateViewController(withIdentifier:"asd") as! PageDotViewController
-        mainPageViewController.canteen_name = marker.title!
-        mainPageViewController.canteen_id = canteenNameToId[marker.title!]!
+        mainPageViewController.restaurantId = canteenNameToId[marker.title!]!
         self.show(mainPageViewController, sender: self)
     }
     

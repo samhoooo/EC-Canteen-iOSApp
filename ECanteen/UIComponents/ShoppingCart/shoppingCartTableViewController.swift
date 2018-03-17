@@ -21,6 +21,7 @@ class shoppingCartTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         UNUserNotificationCenter.current().delegate = self //enable foreground app notification
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {

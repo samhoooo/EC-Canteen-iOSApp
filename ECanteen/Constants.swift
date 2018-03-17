@@ -14,6 +14,9 @@ struct Constants {
 //    static let API_BASE = "http://192.168.0.142:8000"
     
     static func decimalToInt (decimal: String) -> Int {
+        if (decimal == "") {
+            return 0
+        }
         do {
             let regex = try NSRegularExpression(pattern: "\\d+")
             let results = regex.matches(in: decimal, range: NSRange(location: 0, length: decimal.utf8.count))

@@ -56,7 +56,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             let restaurantTabBarController = segue.destination as! RestaurantDetailController
             
             // set a variable in the second view controller with the data to pass
-            restaurantTabBarController.canteen_id = selectedRestaurantID
+            restaurantTabBarController.restaurantId = selectedRestaurantID
         }
     }
 }

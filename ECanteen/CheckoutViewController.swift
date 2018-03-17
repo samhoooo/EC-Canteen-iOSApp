@@ -182,12 +182,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             title = "Error"
             message = error?.localizedDescription ?? ""
         case .success:
-            Alamofire.request("\(Constants.API_BASE)/restaurants/\(restaurantID)/orders/\(orderID)").responseString { response in
-                if let value = response.result.value {
-                    print(value)
-                }
-            }
-            
             title = "預訂成功"
             message = "\(self.product)成功! 請耐心等候，食物將完成時會有通知提醒"
             let shoppingCartInstance = shoppingCart.sharedShoppingCart
@@ -195,8 +189,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             shoppingCartInstance.shoppingCartArray = []
             print("History: ")
             print(shoppingCartInstance.orderHistory)
-            shoppingCartInstance.canteenName = ""
-            shoppingCartInstance.canteenId = 0
+            shoppingCartInstance.restaurantId = 0
         case .userCancellation:
             return
         }

@@ -125,7 +125,7 @@ class SearchTableController: UITableViewController, UIApplicationDelegate {
             let restaurantDetailController = segue.destination as! RestaurantDetailController
             
             // set a variable in the second view controller with the data to pass
-            restaurantDetailController.canteen_id = selectedRestaurantID
+            restaurantDetailController.restaurantId = selectedRestaurantID
         } else {
             let mapViewController = segue.destination as! MapViewController
             mapViewController.restaurantList = restaurants

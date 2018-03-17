@@ -44,14 +44,14 @@ class MealTableViewCell: UITableViewCell {
 class mealTableViewController: UITableViewController {
     
     //MARK: Properties
-    var meals = [Meal]()
-    var canteen_id:Int = 0
-    var canteen_name = ""
+    var menu:Menu = Menu()
+    var restaurantId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(canteen_id)
-        loadSampleMeals()   //load the sample meals to tableView
+        print("ResuaurantId: \(restaurantId)")
+           //load the sample meals to tableView
+        loadSampleMeals()
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,11 +62,15 @@ class mealTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.menu.columns.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return self.menu.columns[section].items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.menu.columns[section].column_name
     }
     
     //MARK: Private Methods
@@ -78,7 +82,7 @@ class mealTableViewController: UITableViewController {
         //let photo3 = UIImage(named: "coffeecon_meal3")
         //let photo4 = UIImage(named: "coffeecon_meal4")
         
-        Alamofire.request("\(Constants.API_BASE)/restaurants/"+String(canteen_id)+"/menus/1",method:.get).responseJSON{ response in
+        Alamofire.request("\(Constants.API_BASE)/restaurants/"+String(restaurantId)+"/menus/current",method:.get).responseJSON{ response in
             
             if let status = response.response?.statusCode{
                 switch(status){
@@ -91,37 +95,16 @@ class mealTableViewController: UITableViewController {
             
             if response.result.value != nil {
                 if response.result.isSuccess {
-                    do{
+                    do {
                         let json: JSON = try JSON(data: response.data!)
-                        
-                        if let result = json["columns"].array {
-                            for data in result {
-                                if let items = data["items"].array{
-                                    for item in items{
-                                        if item["name"] != JSON.null{
-                                            let price = item["price"].stringValue
-                                            guard let mealX = Meal(
-                                                name:"\(item["name"])",
-                                                photo: UIImage(named: "coffeecon_meal"+String(self.meals.count % 4 + 1)),
-                                                price: price,
-                                                itemId:item["itemid"].intValue)
-                                            else {
-                                                fatalError("Unable to instantiate meal")
-                                            }
-                                            self.meals += [mealX]
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        self.menu = Menu(menu: json["menu"])
                         self.tableView.reloadData()
-                        print(self.meals)
-                    }catch{
+                        print(self.menu)
+                    } catch {
                         print(error)
                     }
                 }
             }
-            
         }
         
         
@@ -151,41 +134,46 @@ class mealTableViewController: UITableViewController {
             fatalError("the dequeued cell is not an instance of menuTableViewCell")
         }
         
-        let meal = meals[indexPath.row]
+        let item = menu.columns[indexPath.section].items[indexPath.row]
         
-        cell.mealNameLabel.text = meal.name
-        cell.mealPriceLabel.text = "$ "+String(format:"%.1f",Double(meal.price)/100)
-        cell.mealPhotoImageView.image = meal.photo
+        cell.mealNameLabel.text = item.name
+        cell.mealPriceLabel.text = "$ "+String(format:"%.1f",Double(item.price)/100)
+        cell.mealPhotoImageView.image = item.photo
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    var selectedItem:Item?
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let shoppingCartInstance = shoppingCart.sharedShoppingCart
-        if (self.canteen_id != shoppingCartInstance.canteenId && shoppingCartInstance.canteenName.isEmpty==false){
-            print(self.canteen_name+" "+shoppingCartInstance.canteenName)
+        
+        selectedItem = menu.columns[indexPath.section].items[indexPath.row]
+        
+        if (self.restaurantId != shoppingCartInstance.restaurantId && shoppingCartInstance.restaurantId != 0){
             let alert = UIAlertController(title: "已有訂單", message: "你已有其他餐廳的訂單！", preferredStyle: UIAlertControllerStyle.actionSheet)
             alert.addAction(UIAlertAction(title: "是", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            return
+            return nil
         }
-        let alert = UIAlertController(title: "加到購物籃", message: "你確定要加 "+meals[indexPath.row].name+" 到購物籃嗎？", preferredStyle: UIAlertControllerStyle.actionSheet)
-        alert.addAction(UIAlertAction(title: "是", style: UIAlertActionStyle.default, handler: {_ in
-            let mealItem = self.meals[indexPath.row]
-            shoppingCartInstance.shoppingCartArray.append(mealItem)
-            shoppingCartInstance.canteenName = self.canteen_name
-            shoppingCartInstance.canteenId = self.canteen_id
-            print(shoppingCartInstance.canteenName)
-            print("Shopping cart called.")
-            //print(shoppingCartInstance.shoppingCartArray)
-            let successAlert = UIAlertController(title: "已加到購物籃", message: self.meals[indexPath.row].name+"已成功加到購物籃，謝謝！\n 你有"+String(shoppingCartInstance.shoppingCartArray.count)+"項食品未結賬，請到「你的訂單」結賬", preferredStyle: UIAlertControllerStyle.alert)
-            successAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler:nil))
-            self.present(successAlert, animated: true, completion:nil)
-        }
-        ))
-        alert.addAction(UIAlertAction(title: "否", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        shoppingCartInstance.restaurantId = self.restaurantId
+        
+        return indexPath
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMealOption" {
+            if let destinationVC = segue.destination as? MealOptionViewController {
+                if let selectedItemForSegue = selectedItem {
+                    destinationVC.item = selectedItemForSegue
+                    print("Assignment OK")
+                } else {
+                    print("ERROR")
+                }
+            }
+        }
+    }
+
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      if let savedPageViewController = segue.destination as? savedPageViewController

@@ -53,19 +53,19 @@ class PopUpViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        let length : Int = textField.text.characters.count
+        let length : Int = textField.text.count
         self.wordCountLabel.text = "剩 "+String(400 - length)+" 字"
         print("on9")
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text.characters.count==0)
+        if(text.count==0)
         {
-            if(textField.text.characters.count != 0){
+            if(textField.text.count != 0){
                 return true
             }
         }
-        else if(textField.text.characters.count>399)
+        else if(textField.text.count > 399)
         {
             return false
         }

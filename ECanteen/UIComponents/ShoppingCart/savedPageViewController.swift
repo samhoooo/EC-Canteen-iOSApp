@@ -16,13 +16,13 @@ class savedPageViewController: UIViewController {
 
     @IBOutlet weak var totalTextView: UILabel!
     @IBOutlet weak var checkoutButtonView: UIButton!
-    @IBOutlet weak var restaurantTextView: UILabel!
     
     let settingsVC = SettingsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +33,6 @@ class savedPageViewController: UIViewController {
             totalPrice += item.price
         }
         totalTextView.text = "$"+String(format: "%.1f",Double(totalPrice)/100) //update total price label
-        restaurantTextView.text = shoppingCartInstance.canteenName
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,21 +54,16 @@ class savedPageViewController: UIViewController {
             //Choose payment methods
             let choiceAlert = UIAlertController(title: "選擇付款方法", message: "我們提供幾種方便的付款方法", preferredStyle: UIAlertControllerStyle.actionSheet)
             
-<<<<<<< HEAD:ECanteen/savedPageViewController.swift
-            UIApplication.shared.registerForRemoteNotifications()
-            let parameters = ["cart": shoppingCartInstance.outputJSON(), "iosDeviceToken": Constants.deviceToken] as [String : Any]
-=======
             
             //if alipay is chosen
             choiceAlert.addAction(UIAlertAction(title: "支付寶", style: UIAlertActionStyle.default, handler: {_ in
                 
             }))
->>>>>>> 4f3882c9febfd8672dbc1a06486fedd776e9d686:ECanteen/UIComponents/ShoppingCart/savedPageViewController.swift
             
             //if stripe is chosen
             choiceAlert.addAction(UIAlertAction(title: "Stripe", style: UIAlertActionStyle.default, handler: {_ in
-                let endpoint = "\(Constants.API_BASE)/restaurants/\(shoppingCartInstance.canteenId)/orders"
-                let parameters = ["cart": shoppingCartInstance.outputJSON()]
+                let endpoint = "\(Constants.API_BASE)/restaurants/\(shoppingCartInstance.restaurantId)/orders"
+                let parameters = ["cart": shoppingCartInstance.outputJSON(), "iosDeviceToken": Constants.deviceToken] as [String : Any]
                 
                 Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                     if let JSONData = response.result.value {
@@ -80,7 +74,7 @@ class savedPageViewController: UIViewController {
                         let checkoutViewController = CheckoutViewController(product: "堂食預訂",
                                                                             price: Constants.decimalToInt(decimal: parsedJSON["amount"].stringValue),
                                                                             settings: self.settingsVC.settings,
-                                                                            restaurantID: shoppingCartInstance.canteenId,
+                                                                            restaurantID: shoppingCartInstance.restaurantId,
                                                                             orderID: parsedJSON["order_id"].intValue)
                         self.navigationController?.pushViewController(checkoutViewController, animated: true)
                     } else {

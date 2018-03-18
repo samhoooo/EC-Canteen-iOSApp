@@ -10,6 +10,7 @@ import UIKit
 import Stripe
 import Alamofire
 import SwiftyJSON
+import Alipay
 
 
 class savedPageViewController: UIViewController {
@@ -57,6 +58,35 @@ class savedPageViewController: UIViewController {
             
             //if alipay is chosen
             choiceAlert.addAction(UIAlertAction(title: "支付寶", style: UIAlertActionStyle.default, handler: {_ in
+                var subject:String = "堂食預訂"
+                var out_trade_no:String  = "123"  //This is to identify a specific order
+                
+                let shoppingCartInstance = shoppingCart.sharedShoppingCart
+                var totalPrice = 0
+                for item in shoppingCartInstance.shoppingCartArray{
+                    totalPrice += item.price
+                }
+                
+                var total_amount:Double = Double(totalPrice)
+                var product_code:String = "QUICK_MSECURITY_PAY"
+                
+                let parameters = ["cart": shoppingCartInstance.outputJSON(), "iosDeviceToken": Constants.deviceToken] as [String : Any]
+                let endpoint = "\(Constants.API_BASE)/restaurants/\(shoppingCartInstance.restaurantId)/orders"
+
+                Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{ response in
+                    if let JSONData = response.result.value {
+                        let parsedJSON = JSON(JSONData)
+                        out_trade_no = parsedJSON["order_id"].stringValue
+                        total_amount = parsedJSON["amount"].doubleValue
+                    }
+                }
+                
+                let aliOrder = AlipayOrder(subject: subject,out_trade_no: out_trade_no,total_amount: total_amount,product_code: product_code)
+                aliOrder.getRequestString()
+                
+                // NOTE: 获取私钥并将商户信息签名，外部商户的加签过程请务必放在服务端，防止公私钥数据泄露；
+                //       需要遵循RSA签名规范，并将签名字符串base64编码和UrlEncode
+                //let signer = RSADataSigner(privateKey: aliOrder.private_key)
                 
             }))
             

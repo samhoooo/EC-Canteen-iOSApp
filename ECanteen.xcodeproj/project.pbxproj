@@ -34,6 +34,7 @@
 		2290699D2028B6690053240C /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290699B2028B6690053240C /* UserLocation.swift */; };
 		229069A220294FC20053240C /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229069A120294FC20053240C /* notifications.swift */; };
 		22CBA16F1F20DB5500CBE579 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBA16E1F20DB5500CBE579 /* ImageCollectionViewCell.swift */; };
+		22F525AA205E543C00AAB06B /* AlipayOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F525A9205E543C00AAB06B /* AlipayOrder.swift */; };
 		22FCA3CC1F26E87E0062F97B /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CB1F26E87E0062F97B /* CommentCollectionViewCell.swift */; };
 		22FCA3CE1F26E9B10062F97B /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CD1F26E9B10062F97B /* CommentViewController.swift */; };
 		22FCA3D01F2727870062F97B /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCA3CF1F2727870062F97B /* PopUpViewController.swift */; };
@@ -115,6 +116,7 @@
 		2290699E2028B8E80053240C /* ECanteen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ECanteen.entitlements; sourceTree = "<group>"; };
 		229069A120294FC20053240C /* notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifications.swift; sourceTree = "<group>"; };
 		22CBA16E1F20DB5500CBE579 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		22F525A9205E543C00AAB06B /* AlipayOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlipayOrder.swift; sourceTree = "<group>"; };
 		22FCA3CB1F26E87E0062F97B /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FCA3CD1F26E9B10062F97B /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		22FCA3CF1F2727870062F97B /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +295,14 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		22F525A8205E541D00AAB06B /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				22F525A9205E543C00AAB06B /* AlipayOrder.swift */,
+			);
+			name = Alipay;
+			sourceTree = "<group>";
+		};
 		5EEC97E71F23889200B0DCF6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +355,7 @@
 		F3663DA71F0B2C3400D3AC9B /* ECanteen */ = {
 			isa = PBXGroup;
 			children = (
+				22F525A8205E541D00AAB06B /* Alipay */,
 				2290699E2028B8E80053240C /* ECanteen.entitlements */,
 				225DBE092022EA2B006DB897 /* shoppingCart.swift */,
 				225DBE0B2022EA31006DB897 /* Meal.swift */,
@@ -577,11 +588,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ECanteen/Pods-ECanteen-resources.sh",
+				"${PODS_ROOT}/AliPay/AlipaySDK.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
@@ -661,6 +674,7 @@
 				F3663DE21F0B36B600D3AC9B /* settingPageViewController.swift in Sources */,
 				22CBA16F1F20DB5500CBE579 /* ImageCollectionViewCell.swift in Sources */,
 				2290699D2028B6690053240C /* UserLocation.swift in Sources */,
+				22F525AA205E543C00AAB06B /* AlipayOrder.swift in Sources */,
 				22FCA3D01F2727870062F97B /* PopUpViewController.swift in Sources */,
 				5ED041421F1B5E0A000D2F6F /* webViewController.swift in Sources */,
 				224DADC81FD18902005E0475 /* SettingViewController.swift in Sources */,
@@ -839,11 +853,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B0D9FD24A1DC7D982BF1047A /* Pods-ECanteen.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_ENTITLEMENTS = ECanteen/ECanteen.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3KGZVUCKF2;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/ECanteen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
@@ -858,11 +874,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C8CEF7C4F8FCD8066A83DAF7 /* Pods-ECanteen.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_ENTITLEMENTS = ECanteen/ECanteen.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3KGZVUCKF2;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/ECanteen/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";

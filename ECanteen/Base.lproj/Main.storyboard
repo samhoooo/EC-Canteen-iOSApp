@@ -429,7 +429,6 @@
                     <tabBarItem key="tabBarItem" title="你的訂單" image="BookmarkRibbon" selectedImage="BookmarkRibbon" id="wVe-G3-aPT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vN4-QU-YJ4">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.7.0)
-  - AliPay (2.1.2)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
   - GoogleMaps/Base (2.6.0)
@@ -14,7 +13,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AliPay (~> 2.1.2)
   - GoogleMaps
   - GooglePlaces
   - QRCode
@@ -23,13 +21,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
-  AliPay: 2bd35a4e486d2a8c035043023cd846e886bb21d1
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   Stripe: 3230cdf8a8b0c04902e45e86f222fb82a926239c
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: a28ab22d4775aaeef3fe3df2478d01b41b02481f
+PODFILE CHECKSUM: 3790d0c8f00362f0ac31b078f21df22f3dd9c834
 
 COCOAPODS: 1.4.0

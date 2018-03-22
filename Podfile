@@ -8,5 +8,4 @@ use_frameworks!
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'QRCode'
-  pod 'AliPay', '~> 2.1.2'
 end

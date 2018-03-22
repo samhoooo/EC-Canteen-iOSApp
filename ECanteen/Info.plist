@@ -18,6 +18,17 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>alipaydemo</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -27,8 +38,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>NSLocationAlwaysAndWhenInUseUsageDescription</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>EC Canteen 需要取用你的位置</string>
+	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -45,9 +58,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-        <string>NSLocationAlwaysAndWhenInUseUsageDescription</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-        <string>NSLocationWhenInUseUsageDescription</string>
 </dict>
 </plist>

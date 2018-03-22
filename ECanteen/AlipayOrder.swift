@@ -30,7 +30,7 @@ class AlipayOrder{
         self.product_code = product_code
     }
     
-    func getRequestString(){
+    func getRequestString() -> String{
         var requestString:String = ""
         
         let appid:String = "app_id="+self.app_id
@@ -40,7 +40,12 @@ class AlipayOrder{
         let charset:String = "charset=utf-8"
         let format:String = "format=json"
         let version:String = "version=1.0"
-        let sign:String = "sign="+self.public_key
+        
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let timestamp:String = "timestamp="+formatter.string(from: currentDateTime)
         
         let biz_content: [String: Any] = [
             "subject": self.subject,
@@ -58,11 +63,13 @@ class AlipayOrder{
         requestString += charset+"&"
         requestString += format+"&"
         requestString += version+"&"
-        requestString += sign
-        requestString += "&biz_content"+(jsonString as! String)
+        requestString += timestamp+"&"
+        requestString += "biz_content="+(jsonString as! String)
+        
+        print(requestString)
         
         let encodedRequestString = requestString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-
-        print(encodedRequestString)
+        
+        return encodedRequestString!;
     }
 }

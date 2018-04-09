@@ -57,7 +57,61 @@ class savedPageViewController: UIViewController {
             
             //if alipay is chosen
             choiceAlert.addAction(UIAlertAction(title: "支付寶", style: UIAlertActionStyle.default, handler: {_ in
+                var subject:String = "堂食預訂"
+                var out_trade_no:String  = "123"  //This is to identify a specific order
                 
+                let shoppingCartInstance = shoppingCart.sharedShoppingCart
+                var totalPrice = 0
+                for item in shoppingCartInstance.shoppingCartArray{
+                    totalPrice += item.price
+                }
+                
+                var total_amount:Double = Double(totalPrice)
+                var product_code:String = "QUICK_MSECURITY_PAY"
+                
+                let parameters = ["cart": shoppingCartInstance.outputJSON(), "iosDeviceToken": Constants.deviceToken] as [String : Any]
+                let endpoint = "\(Constants.API_BASE)/restaurants/\(shoppingCartInstance.restaurantId)/orders"
+
+                Alamofire.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON{ response in
+                    if let JSONData = response.result.value {
+                        let parsedJSON = JSON(JSONData)
+                        out_trade_no = parsedJSON["order_id"].stringValue
+                        total_amount = parsedJSON["amount"].doubleValue
+                    }
+                }
+                
+                let aliOrder = AlipayOrder(subject: subject,out_trade_no: out_trade_no,total_amount: total_amount,product_code: product_code)
+                let orderSpec = aliOrder.getRequestString()
+                
+                // NOTE: 获取私钥并将商户信息签名，外部商户的加签过程请务必放在服务端，防止公私钥数据泄露；
+                //       需要遵循RSA签名规范，并将签名字符串base64编码和UrlEncode
+                
+                let signer = RSADataSigner(privateKey: aliOrder.private_key)
+                let signedString = signer?.sign(orderSpec)
+                let sign:String = "sign="+signedString!
+                let orderString = orderSpec + "&" + sign
+                print(orderString)
+                
+                AlipaySDK.defaultService().payOrder(orderString, fromScheme: "alipaydemo", callback: {[weak self] resultDic in
+                        print(resultDic)
+                        /*if let strongSelf = self {
+                            print("Alipay result = \((resultDic as!as,!Dictionary))")
+                            let resultDic = (resultDic as! Dictionary)!
+                            if let resultStatus = resultDic["resultStatus"] as? String {
+                                if resultStatus == "9000" {
+                                    strongSelf.delete?.paymentSuccess(paymentType: .Alipay)
+                                    let msg = "支付成功！"
+                                    let alert = UIAlertView(title: nil, message: msg, delegate: nil, cancelButtonTitle: "好的")
+                                    alert.show()
+                                    //strongSelf.navigationController?.popViewControllerAnimated(true)
+                                } else {
+                                    strongSelf.delete?.paymentFail(paymentType: .Alipay)
+                                    let alert = UIAlertView(title: nil, message: "支付失败，请您重新支付！", delegate: nil, cancelButtonTitle: "好的")
+                                    alert.show()
+                                }
+                            }
+                        }*/
+                })
             }))
             
             //if stripe is chosen

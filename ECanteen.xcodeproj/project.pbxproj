@@ -47,6 +47,10 @@
 		22986BA8205FF55C008A4C39 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 22986B9F205FF55B008A4C39 /* base64.m */; };
 		22986BA9205FF55C008A4C39 /* DataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 22986BA1205FF55B008A4C39 /* DataVerifier.m */; };
 		22986BAA205FF55C008A4C39 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22986BA2205FF55B008A4C39 /* RSADataSigner.m */; };
+		22986C00206A0D27008A4C39 /* VisaCheckoutSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22986BFF206A0D27008A4C39 /* VisaCheckoutSDK.framework */; };
+		22986C01206A0D27008A4C39 /* VisaCheckoutSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22986BFF206A0D27008A4C39 /* VisaCheckoutSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		22986C04206A0D38008A4C39 /* TrustDefender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22986C02206A0D38008A4C39 /* TrustDefender.framework */; };
+		22986C05206A0D38008A4C39 /* VisaCheckoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22986C03206A0D38008A4C39 /* VisaCheckoutButton.swift */; };
 		22CBA16F1F20DB5500CBE579 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CBA16E1F20DB5500CBE579 /* ImageCollectionViewCell.swift */; };
 		22F525AA205E543C00AAB06B /* AlipayOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F525A9205E543C00AAB06B /* AlipayOrder.swift */; };
 		22F525B4205FB8E900AAB06B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F525B3205FB8E900AAB06B /* SystemConfiguration.framework */; };
@@ -107,6 +111,20 @@
 			remoteInfo = tonightEatWhat;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		22986BFA20694177008A4C39 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				22986C01206A0D27008A4C39 /* VisaCheckoutSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		09B42CEC0EC67FFA2720E604 /* Pods_ECanteen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECanteen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +254,9 @@
 		22986BF4205FF589008A4C39 /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
 		22986BF5205FF589008A4C39 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
 		22986BF6205FF589008A4C39 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		22986BFF206A0D27008A4C39 /* VisaCheckoutSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VisaCheckoutSDK.framework; sourceTree = "<group>"; };
+		22986C02206A0D38008A4C39 /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TrustDefender.framework; sourceTree = "<group>"; };
+		22986C03206A0D38008A4C39 /* VisaCheckoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisaCheckoutButton.swift; sourceTree = "<group>"; };
 		22CBA16E1F20DB5500CBE579 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		22F525A9205E543C00AAB06B /* AlipayOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlipayOrder.swift; sourceTree = "<group>"; };
 		22F525AF205FB8D500AAB06B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -306,6 +327,8 @@
 				22F525BA205FB95800AAB06B /* CoreText.framework in Frameworks */,
 				22F525B8205FB95000AAB06B /* QuartzCore.framework in Frameworks */,
 				22F525B6205FB8F800AAB06B /* CoreTelephony.framework in Frameworks */,
+				22986C00206A0D27008A4C39 /* VisaCheckoutSDK.framework in Frameworks */,
+				22986C04206A0D38008A4C39 /* TrustDefender.framework in Frameworks */,
 				22F525B4205FB8E900AAB06B /* SystemConfiguration.framework in Frameworks */,
 				22986B8A205FF329008A4C39 /* libcrypto.a in Frameworks */,
 				223F54031F16129100AA2E11 /* AVFoundation.framework in Frameworks */,
@@ -612,6 +635,9 @@
 		F3663D9C1F0B2C3400D3AC9B = {
 			isa = PBXGroup;
 			children = (
+				22986C02206A0D38008A4C39 /* TrustDefender.framework */,
+				22986C03206A0D38008A4C39 /* VisaCheckoutButton.swift */,
+				22986BFF206A0D27008A4C39 /* VisaCheckoutSDK.framework */,
 				5240C5482029B377000C546D /* Default-568h@2x.png */,
 				F3663DA71F0B2C3400D3AC9B /* ECanteen */,
 				F3663DA61F0B2C3400D3AC9B /* Products */,
@@ -705,6 +731,7 @@
 				F3663DA31F0B2C3400D3AC9B /* Resources */,
 				896762061D2AD935279FB34B /* [CP] Embed Pods Frameworks */,
 				77BBDFE34D43649DBF8768E2 /* [CP] Copy Pods Resources */,
+				22986BFA20694177008A4C39 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -920,6 +947,7 @@
 				F3663DF41F0B438800D3AC9B /* tabBarController.swift in Sources */,
 				224DADC61FD18886005E0475 /* Buttons.swift in Sources */,
 				22986BA5205FF55C008A4C39 /* RSADataVerifier.m in Sources */,
+				22986C05206A0D38008A4C39 /* VisaCheckoutButton.swift in Sources */,
 				226A90AB2029811D00385867 /* takeFoodViewController.swift in Sources */,
 				224DADCC1FD27878005E0475 /* historyItemTableViewCell.swift in Sources */,
 				224DADC41FD18845005E0475 /* CheckoutRowView.swift in Sources */,

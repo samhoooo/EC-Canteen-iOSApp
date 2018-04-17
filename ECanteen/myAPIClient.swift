@@ -30,7 +30,7 @@ class MyAPIClient: NSObject, STPEphemeralKeyProvider {
         // let url = self.baseURL.appendingPathComponent("charge")
         let url = "\(Constants.API_BASE)/restaurants/\(restaurantID)/orders/\(orderID)/pay"
         let params: [String: Any] = [
-//            "customer": "cus_BorcdMH1riFZcj",
+            "customer": "cus_BorcdMH1riFZcj",
             "amount": amount,
 //            "currency" : "HKD",
             "paymentMethod": "stripe"

@@ -12,6 +12,7 @@ class shoppingCart{
     var shoppingCartArray = [Item]()
     var restaurantId = 0
     var orderHistory = [Item]()
+    
     static let sharedShoppingCart = shoppingCart()
     
     func outputJSON () -> [[String:Any]] {

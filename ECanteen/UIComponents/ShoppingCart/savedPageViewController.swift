@@ -10,7 +10,7 @@ import UIKit
 import Stripe
 import Alamofire
 import SwiftyJSON
-
+import VisaCheckoutSDK
 
 class savedPageViewController: UIViewController {
 
@@ -20,6 +20,7 @@ class savedPageViewController: UIViewController {
     let settingsVC = SettingsViewController()
     
     override func viewDidLoad() {
+        VisaCheckoutSDK.configure(environment: .sandbox, apiKey: "HRF6NU45CU3RBRLJ1XBQ21yCXguivCh0Tdp5aM2EunCoR0u5s") //initialize visa checkout SDK
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
@@ -94,23 +95,6 @@ class savedPageViewController: UIViewController {
                 
                 AlipaySDK.defaultService().payOrder(orderString, fromScheme: "alipaydemo", callback: {[weak self] resultDic in
                         print(resultDic)
-                        /*if let strongSelf = self {
-                            print("Alipay result = \((resultDic as!as,!Dictionary))")
-                            let resultDic = (resultDic as! Dictionary)!
-                            if let resultStatus = resultDic["resultStatus"] as? String {
-                                if resultStatus == "9000" {
-                                    strongSelf.delete?.paymentSuccess(paymentType: .Alipay)
-                                    let msg = "支付成功！"
-                                    let alert = UIAlertView(title: nil, message: msg, delegate: nil, cancelButtonTitle: "好的")
-                                    alert.show()
-                                    //strongSelf.navigationController?.popViewControllerAnimated(true)
-                                } else {
-                                    strongSelf.delete?.paymentFail(paymentType: .Alipay)
-                                    let alert = UIAlertView(title: nil, message: "支付失败，请您重新支付！", delegate: nil, cancelButtonTitle: "好的")
-                                    alert.show()
-                                }
-                            }
-                        }*/
                 })
             }))
             
@@ -142,6 +126,45 @@ class savedPageViewController: UIViewController {
                     }
                 }
             }))
+            
+            //if Visa Checkout is chosen
+            choiceAlert.addAction(UIAlertAction(title: "Visa Checkout", style: UIAlertActionStyle.default, handler: {_ in
+                VisaCheckoutSDK.checkout(total: 22.09, currency: .usd) { result in
+                    switch result.statusCode {
+                    case .success:
+                        print("Encrypted key: \(result.encryptedKey)")
+                        print("Payment data: \(result.encryptedPaymentData)")
+                        var title: String = ""
+                        var message: String = ""
+                        title = "預訂成功"
+                        message = "成功! 請耐心等候，食物將完成時會有通知提醒"
+                        let shoppingCartInstance = shoppingCart.sharedShoppingCart
+                        shoppingCartInstance.orderHistory = shoppingCartInstance.shoppingCartArray
+                        shoppingCartInstance.shoppingCartArray = []
+                        print("History: ")
+                        print(shoppingCartInstance.orderHistory)
+                        shoppingCartInstance.restaurantId = 0
+                        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                        let action = UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
+                            self.dismiss(animated: true,completion: nil)
+                            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "tabBar") as! tabBarController
+                            self.present(nextViewController, animated:true, completion:nil)})
+                        alertController.addAction(action)
+                        self.present(alertController, animated: true, completion: nil)
+                            
+                    case .userCancelled:
+                        print("Payment cancelled by the user")
+                    case .notConfigured:
+                        print("Not configued properly!")
+                    case .internalError:
+                        print("Internal error!")
+                    default:
+                        break
+                    }
+                }
+            }))
+
             self.present(choiceAlert, animated: true, completion: nil)
             
         }else{
